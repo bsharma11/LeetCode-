@@ -8,7 +8,6 @@ class Solution:
                 dc[i] = 1
         maxHeap = [[-cnt, char] for char, cnt in dc.items()]
         heapq.heapify(maxHeap) # O(n)
-        print(maxHeap)
         prev = None
         res = ""
         
