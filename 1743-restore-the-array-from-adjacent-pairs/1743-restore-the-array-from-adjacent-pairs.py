@@ -1,40 +1,5 @@
 class Solution:
     def restoreArray(self, adjacentPairs: List[List[int]]) -> List[int]:
-#         if len(adjacentPairs) == 1:
-#             return [adjacentPairs[0][0],adjacentPairs[0][1]]
-#         a = [None]*(len(adjacentPairs)+1)
-#         dc = {}
-#         for i in range(len(adjacentPairs)):
-#             if adjacentPairs[i][0] in dc:
-#                 dc[adjacentPairs[i][0]] += 1
-#             if adjacentPairs[i][0] not in dc:
-               
-#                 dc[adjacentPairs[i][0]] = 1
-#             if adjacentPairs[i][1] in dc:
-               
-#                 dc[adjacentPairs[i][1]] += 1
-#             if adjacentPairs[i][1] not in dc:
-#                 dc[adjacentPairs[i][1]] = 1
-#         b = [[num,cnt] for num,cnt in dc.items()]
-#         i = 0 
-#         print(b)
-#         while i < len(b):
-#             print(i)
-#             if b[i][1] == 2:
-#                 if i % 2 == 0: 
-#                     a[i+1] = b[i][0]
-#                     a[i] = b[i+1][0]
-#                     i += 2
-#                     continue
-#                 else:
-#                     a[i] = b[i][0]
-#                     i += 1
-#                     continue
-#             if b[i][1] == 1:
-#                 a[i] = b[i][0]
-#                 i+= 1
-#                 continue
-#         print(a)
         graph=defaultdict(list)
         
         # creating the graph
