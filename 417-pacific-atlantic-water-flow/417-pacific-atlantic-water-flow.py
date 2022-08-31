@@ -19,8 +19,6 @@ class Solution:
         for i in range(m):
             dfs(n-1,i,atlantic)
             dfs(0,i,pacific)
-        
-        
         a = []
         for i in atlantic:
             if i in pacific:
