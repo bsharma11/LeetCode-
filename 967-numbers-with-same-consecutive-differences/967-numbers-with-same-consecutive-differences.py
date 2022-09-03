@@ -1,6 +1,5 @@
 class Solution:
     def numsSameConsecDiff(self, n: int, k: int) -> List[int]:
-        
        
         ans = []
         # push all numbers with single digit to a deque
@@ -9,13 +8,11 @@ class Solution:
         # while the queue is not empty
         while d:
             # pop the first element from the deque
-            pos, num = d.pop()
-            # if the current position is n, 
+            pos, num = d.pop() 
             if pos == n:
-                # then we can append num to ans
+                
                 ans.append(num)
             else:
-                # otherwise, we can iterate 0 to 9
                 for j in range(10):
                     # and use num % 10 to get the last digit of num
                     # then get the difference with j
