@@ -12,7 +12,7 @@ class Solution:
         #code here
         dist = [int(1e8)]*V
         dist[S] = 0
-        for i in range(V):
+        for i in range(V-1):
             for i in edges:
                 source = i[0]
                 dest = i[1]
