@@ -1,20 +1,24 @@
 #User function Template for python3
+
 class Solution:
     
     #Function to return a list containing the DFS traversal of the graph.
     def dfsOfGraph(self, V, adj):
-        def calc(i):
         # code here
-            self.vis.add(i)
-            self.res.append(i)
-            for i in adj[i]:
-                if i not in self.vis:
-                    calc(i)
-            return 
-        self.vis = set() 
-        self.res = []
-        calc(0)
-        return self.res
+        def dfs(i):
+            for a in adj[i]:
+                if self.vis[a] == 1:
+                    continue
+                else:
+                    self.vis[a] = 1
+                    self.ans.append(a)
+                    dfs(a)
+            return
+        self.ans = [0]
+        self.vis  =[0]*V
+        self.vis[0] = 1
+        dfs(0)
+        return self.ans
 #{ 
  # Driver Code Starts
 
