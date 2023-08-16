@@ -1,31 +1,27 @@
 #User function Template for python3
-from collections import deque
+
 from typing import List
 from queue import Queue
 class Solution:
     #Function to return Breadth First Traversal of given graph.
     def bfsOfGraph(self, V: int, adj: List[List[int]]) -> List[int]:
-        q=deque()
-        q.append(0)
-        isdone={}
-        ans=[] 
-
-        while q:
-            cur=q.popleft()
-            if cur not in isdone:
-                isdone[cur]=1
-                ans.append(cur)
-            
-            for i in adj[cur]:
-                if i not in isdone:
-                    q.append(i)
-                    
-        return  ans            
         # code here
-
-
-
-
+        q = [0]
+        vis = set()
+        ans = [0]
+        vis.add(0)
+        while q:
+            for _ in range(len(q)):
+                node = q.pop(0)
+                for a in adj[node]:
+                    if a not in vis:
+                        ans.append(a)
+                        vis.add(a)
+                        q.append(a)
+        return ans
+                
+            
+        
 
 #{ 
  # Driver Code Starts
