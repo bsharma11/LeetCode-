@@ -1,17 +1,19 @@
 #User function Template for python3
 class Solution:
-	def maxSumIS(self, Arr, n):
-		# code here
-	    dp = [i for i in Arr]*n
-	    dp[0] = Arr[0]
-		for i in range(1,n):
-		    for j in range(i):
-		        if Arr[i]>Arr[j]:
-		            if dp[j] + Arr[i] > dp[i]:
-		                dp[i] = dp[j]+Arr[i]
-		        
-		return max(dp)
-		
+    def maxSumIS(self, Arr, n):
+        # code here
+        dp = [i for i in Arr]
+        for i in range(1,n):
+            for j in range(i):
+                if Arr[i]>Arr[j]:
+                    if dp[j] + Arr[i] > dp[i]:
+                        dp[i] = dp[j]+Arr[i]
+                
+        return max(dp)
+        
+
+
+
 
 
 #{ 
