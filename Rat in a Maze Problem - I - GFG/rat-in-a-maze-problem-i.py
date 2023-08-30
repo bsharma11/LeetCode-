@@ -3,36 +3,33 @@
 class Solution:
     def findPath(self, m, n):
         # code here
-        
-        def travel(i,j,vis,ans):
-            if i == n-1 and j== n-1:
-                self.res.append(ans)
-                return
-            if i +1<n and m[i+1][j] == 1 and (i+1,j) not in vis:
-                vis.append((i,j))
-                travel(i+1,j,vis,ans+"D")
-                vis.pop()
-            if j -1 >= 0 and m[i][j-1] == 1 and (i,j-1) not in vis:
-                vis.append((i,j))
-                travel(i,j-1,vis,ans+'L')
-                vis.pop()
-            if j +1 < n and m[i][j+1] == 1 and (i,j+1) not in vis:
-                vis.append((i,j))
-                travel(i,j+1,vis,ans+'R')
-                vis.pop()
-            if i -1 >= 0 and m[i-1][j] == 1 and (i-1,j) not in vis:
-                vis.append((i,j))
-                travel(i-1,j,vis,ans+"U")
-                vis.pop()
-        self.res = []
         if m[0][0] == 0 or m[n-1][n-1] == 0:
-             return self.res
-        travel(0,0,[],"")
-        # if not self.res:
-        #     return -1
-        # else:
-        return self.res
-
+            return [-1]
+        def check(i,j,s):
+            if i == n-1 and j == n-1:
+                res.append("".join(s))
+                return 
+            
+            for a in directions:
+                x = a[0] +i
+                y = a[1] + j
+                d = a[2]
+                if x <0  or y < 0 or x >= n or y >= n or m[x][y] != 1 or (x,y) in vis:
+                    continue
+                else:
+                    s.append(d)
+                    vis.add((x,y))
+                    check(x,y,s)
+                    vis.remove((x,y))
+                    s.pop()
+            return 
+        res = []
+        vis = set()
+        vis.add((0,0))
+        directions = [[0,1,"R"],[1,0,"D"],[-1,0,"U"],[0,-1,"L"]]
+        check(0,0,[])
+        res.sort()
+        return res
 
 #{ 
  # Driver Code Starts
