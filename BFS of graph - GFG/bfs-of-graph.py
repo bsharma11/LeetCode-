@@ -11,17 +11,20 @@ class Solution:
         ans = [0]
         vis.add(0)
         while q:
-            for _ in range(len(q)):
-                node = q.pop(0)
-                for a in adj[node]:
-                    if a not in vis:
-                        ans.append(a)
-                        vis.add(a)
-                        q.append(a)
+            
+            node = q.pop(0)
+            for a in adj[node]:
+                if a not in vis:
+                    ans.append(a)
+                    vis.add(a)
+                    q.append(a)
         return ans
                 
             
         
+
+
+
 
 #{ 
  # Driver Code Starts
